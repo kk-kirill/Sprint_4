@@ -9,24 +9,24 @@ import java.time.Duration;
 
 public class SecondOrderFormPage {
 
-    private final By deliveryDateField = By.xpath("//input[@placeholder='* Когда привезти самокат']");
+    private static final By deliveryDateField = By.xpath("//input[@placeholder='* Когда привезти самокат']");
 
-    private final By rentDurationField = By.className("Dropdown-placeholder");
+    private static final By rentDurationField = By.className("Dropdown-placeholder");
 
-    private final By blackColorCheckbox = By.xpath("//input[@id='black']");
-    private final By greyColorCheckbox = By.xpath("//input[@id='grey']");
+    private static final By blackColorCheckbox = By.xpath("//input[@id='black']");
+    private static final By greyColorCheckbox = By.xpath("//input[@id='grey']");
 
-    private final By commentForСourierField = By.xpath("//input[@placeholder='Комментарий для курьера']");
+    private static final By commentForСourierField = By.xpath("//input[@placeholder='Комментарий для курьера']");
 
-    private final By backButton = By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM.Button_Inverted__3IF-i");
+    private static final By backButton = By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM.Button_Inverted__3IF-i");
 
-    private final By orderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
+    private static final By orderButton = By.xpath("//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
-    private final By confirmYesButton = By.xpath("//button[text()='Да']");
+    private static final By confirmYesButton = By.xpath("//button[text()='Да']");
 
-    private final By confirmNoButton = By.xpath("//button[text()='Нет']");
+    private static final By confirmNoButton = By.xpath("//button[text()='Нет']");
 
-    private final By orderSuccessWindow = By.xpath("//div[contains(@class, 'Order_Modal') and contains(text(), 'Заказ оформлен')]");
+    private static final By orderSuccessWindow = By.xpath("//div[contains(@class, 'Order_Modal') and contains(text(), 'Заказ оформлен')]");
 
     private WebDriver driver;
 

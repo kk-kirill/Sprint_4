@@ -16,16 +16,16 @@ public class ClickLogoYandexOpenYandexPageTest {
         WebDriver driver = driverFactory.getDriver();
         MainPage mainPage = new MainPage(driver);
         mainPage.openYandexSamokat();
-        String originalWindow = driver.getWindowHandle();
+        String originalWindow = mainPage.getWindowHandle();
         mainPage.clickLogoYandex();
-        for (String windowHandle : driver.getWindowHandles()) {
+        for (String windowHandle : mainPage.getWindowHandles()) {
             if(!windowHandle.equals(originalWindow)) {
-                driver.switchTo().window(windowHandle);
+                mainPage.switchToWindow(windowHandle);
                 break;
             }
         }
 
-        String currentUrl = driver.getCurrentUrl();
+        String currentUrl = mainPage.getCurrentUrl();
         assertTrue(currentUrl.contains("dzen"));
     }
 }

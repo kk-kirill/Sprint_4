@@ -18,7 +18,6 @@ public class TextErrorOrderScooterFormTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openYandexSamokat();
         mainPage.closeCookie();
-        mainPage.clickFirstOrderButton();
 
         FirstOrderFormPage firstOrderFormPage = mainPage.clickFirstOrderButton();
 

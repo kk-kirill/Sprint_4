@@ -17,7 +17,7 @@ public class ClickLogoOpenMainPageTest {
         MainPage mainPage = new MainPage(driver);
         mainPage.openYandexSamokat();
         mainPage.clickLogoScooter();
-        String currentUrl = driver.getCurrentUrl();
+        String currentUrl = mainPage.getCurrentUrl();
         assertEquals("https://qa-scooter.praktikum-services.ru/", currentUrl);
     }
 }

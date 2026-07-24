@@ -8,23 +8,24 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Set;
 
 public class MainPage {
 
     // локаторы для лого
-    private final By logoScooter = By.className("Header_LogoScooter__3lsAR");
-    private final By logoYandex = By.className("Header_LogoYandex__3TSOI");
+    private static final By logoScooter = By.className("Header_LogoScooter__3lsAR");
+    private static final By logoYandex = By.className("Header_LogoYandex__3TSOI");
 
     // локаторы для кнопок
-    private final By cookieButton = By.className("App_CookieButton__3cvqF");
-    private final By firstOrderButton = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
-    private final By secondOrderButton = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
-    private final By statusButton = By.className("Header_Link__1TAG7");
-    private final By goButton = By.cssSelector(".Header_Button__28dPO");
+    private static final By cookieButton = By.className("App_CookieButton__3cvqF");
+    private static final By firstOrderButton = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
+    private static final By secondOrderButton = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
+    private static final By statusButton = By.className("Header_Link__1TAG7");
+    private static final By goButton = By.cssSelector(".Header_Button__28dPO");
 
-    private final By enterField = By.className("Input_Input__1iN_Z");
+    private static final By enterField = By.className("Input_Input__1iN_Z");
 
-    private final By importantQuestionsSection = By.xpath("//div[contains(text(), 'Вопросы о важном')]/..");
+    private static final By importantQuestionsSection = By.xpath("//div[contains(text(), 'Вопросы о важном')]/..");
 
 
     private WebDriver driver;
@@ -77,17 +78,20 @@ public class MainPage {
     }
 
     public void clickOrderStatusButton() {
-        driver.findElement(By.className("Header_Link__1TAG7")).click();
+        driver.findElement(statusButton).click();
     }
 
     public OrderNotFoundPage clickOnGoButton() {
-        driver.findElement(By.cssSelector(".Header_Button__28dPO")).click();
+        driver.findElement(goButton).click();
         return new OrderNotFoundPage(driver);
     }
 
 
     public void enterOrderNumber(String orderNumber) {
-        driver.findElement(By.className("Input_Input__1iN_Z")).sendKeys(orderNumber); // ввод несуществующего заказа
+        WebElement input = driver.findElement(enterField);
+        new WebDriverWait(driver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.elementToBeClickable(input));
+        input.sendKeys(orderNumber);
     }
 
 
@@ -99,8 +103,25 @@ public class MainPage {
         driver.findElement(logoYandex).click();
     }
 
-
     public String getAnswerText(int index) {
         return driver.findElement(getQuestionPanel(index)).getText();
     }
+
+    public String getCurrentUrl() {
+        return driver.getCurrentUrl();
+    }
+
+    public Set<String> getWindowHandles() {
+        return driver.getWindowHandles();
+    }
+
+    public String getWindowHandle() {
+        return driver.getWindowHandle();
+    }
+
+    public void switchToWindow(String handle) {
+        driver.switchTo().window(handle);
+    }
+
 }
+

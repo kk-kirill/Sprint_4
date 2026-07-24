@@ -10,21 +10,21 @@
     public class FirstOrderFormPage {
 
         // локаторы для полей
-        private final By nameField = By.xpath("//input[@placeholder='* Имя']");
-        private final By surnameField = By.xpath("//input[@placeholder='* Фамилия']");
-        private final By addressField = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
-        private final By metroStationField = By.xpath("//input[@placeholder='* Станция метро']");
-        private final By phoneField = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
+        private static final By nameField = By.xpath("//input[@placeholder='* Имя']");
+        private static final By surnameField = By.xpath("//input[@placeholder='* Фамилия']");
+        private static final By addressField = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
+        private static final By metroStationField = By.xpath("//input[@placeholder='* Станция метро']");
+        private static final By phoneField = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
 
         //локаторы для кнопок
-        private final By nextButton = By.cssSelector(".Button_Middle__1CSJM");
+        private static final By nextButton = By.cssSelector(".Button_Middle__1CSJM");
 
         // локаторы для ошибок полей
-        private final By nameError = By.xpath("//div[text()='Введите корректное имя']");
-        private final By surNameError = By.xpath("//div[text()='Введите корректную фамилию']");
-        private final By addressError = By.xpath("//div[text()='Введите корректный адрес']");
-        private final By metroError = By.xpath("//div[text()='Выберите станцию']");
-        private final By phoneError = By.xpath("//div[text()='Введите корректный номер']");
+        private static final By nameError = By.xpath("//div[text()='Введите корректное имя']");
+        private static final By surNameError = By.xpath("//div[text()='Введите корректную фамилию']");
+        private static final By addressError = By.xpath("//div[text()='Введите корректный адрес']");
+        private static final By metroError = By.xpath("//div[text()='Выберите станцию']");
+        private static final By phoneError = By.xpath("//div[text()='Введите корректный номер']");
 
 
         private WebDriver driver;

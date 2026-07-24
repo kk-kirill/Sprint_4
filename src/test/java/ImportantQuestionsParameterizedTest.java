@@ -48,7 +48,6 @@ public class ImportantQuestionsParameterizedTest {
             mainPage.closeCookie();
             mainPage.scrollToImportantQuestions();
             mainPage.clickQuestionButton(index);
-            mainPage.getAnswerText(index);
 
             String actualAnswer = mainPage.getAnswerText(index);
             assertEquals(expectedAnswer, actualAnswer);

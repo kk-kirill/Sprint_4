@@ -15,10 +15,10 @@ public class OrderNotFoundPage {
         this.driver = driver;
     }
 
-    private final  By imageLocator = (By.cssSelector("img[alt='Not found']"));
+    private static final By imageLocator = (By.cssSelector("img[alt='Not found']"));
 
     public boolean isNotFoundImageDisplayed() {
-        new WebDriverWait(driver, Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated(imageLocator));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOfElementLocated(imageLocator));
         return driver.findElement(imageLocator).isDisplayed();
     }
 }
