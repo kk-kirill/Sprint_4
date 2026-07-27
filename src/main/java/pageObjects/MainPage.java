@@ -13,19 +13,19 @@ import java.util.Set;
 public class MainPage {
 
     // локаторы для лого
-    private static final By logoScooter = By.className("Header_LogoScooter__3lsAR");
-    private static final By logoYandex = By.className("Header_LogoYandex__3TSOI");
+    private static final By LOGO_SCOOTER = By.className("Header_LogoScooter__3lsAR");
+    private static final By LOGO_YANDEX = By.className("Header_LogoYandex__3TSOI");
 
     // локаторы для кнопок
-    private static final By cookieButton = By.className("App_CookieButton__3cvqF");
-    private static final By firstOrderButton = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
-    private static final By secondOrderButton = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
-    private static final By statusButton = By.className("Header_Link__1TAG7");
-    private static final By goButton = By.cssSelector(".Header_Button__28dPO");
+    private static final By COOKIE_BUTTON = By.className("App_CookieButton__3cvqF");
+    private static final By FIRST_ORDER_BUTTON = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
+    private static final By SECOND_ORDER_BUTTON = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
+    private static final By STATUS_BUTTON = By.className("Header_Link__1TAG7");
+    private static final By GO_BUTTON = By.cssSelector(".Header_Button__28dPO");
 
-    private static final By enterField = By.className("Input_Input__1iN_Z");
+    private static final By ENTER_FIELD = By.className("Input_Input__1iN_Z");
 
-    private static final By importantQuestionsSection = By.xpath("//div[contains(text(), 'Вопросы о важном')]/..");
+    private static final By IMPORTANT_QUESTIONS_SECTION = By.xpath("//div[contains(text(), 'Вопросы о важном')]/..");
 
 
     private WebDriver driver;
@@ -39,7 +39,7 @@ public class MainPage {
     }
 
     public void closeCookie() {
-        driver.findElement(cookieButton).click();
+        driver.findElement(COOKIE_BUTTON).click();
     }
 
     public By getQuestionButton(int index) {
@@ -51,7 +51,7 @@ public class MainPage {
     }
 
     public void scrollToImportantQuestions() {
-        WebElement element = driver.findElement(importantQuestionsSection);
+        WebElement element = driver.findElement(IMPORTANT_QUESTIONS_SECTION);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
@@ -64,12 +64,12 @@ public class MainPage {
     }
 
     public FirstOrderFormPage clickFirstOrderButton() {
-        driver.findElement(firstOrderButton).click();
+        driver.findElement(FIRST_ORDER_BUTTON).click();
         return new FirstOrderFormPage(driver);
     }
 
     public FirstOrderFormPage clickSecondOrderButton() {
-        WebElement button = driver.findElement(secondOrderButton);
+        WebElement button = driver.findElement(SECOND_ORDER_BUTTON);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", button);
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(button));
@@ -78,17 +78,17 @@ public class MainPage {
     }
 
     public void clickOrderStatusButton() {
-        driver.findElement(statusButton).click();
+        driver.findElement(STATUS_BUTTON).click();
     }
 
     public OrderNotFoundPage clickOnGoButton() {
-        driver.findElement(goButton).click();
+        driver.findElement(GO_BUTTON).click();
         return new OrderNotFoundPage(driver);
     }
 
 
     public void enterOrderNumber(String orderNumber) {
-        WebElement input = driver.findElement(enterField);
+        WebElement input = driver.findElement(ENTER_FIELD);
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.elementToBeClickable(input));
         input.sendKeys(orderNumber);
@@ -97,10 +97,10 @@ public class MainPage {
 
     //Методы для лого
     public void clickLogoScooter() {
-        driver.findElement(logoScooter).click();
+        driver.findElement(LOGO_SCOOTER).click();
     }
     public void clickLogoYandex() {
-        driver.findElement(logoYandex).click();
+        driver.findElement(LOGO_YANDEX).click();
     }
 
     public String getAnswerText(int index) {
